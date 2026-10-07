@@ -12,6 +12,7 @@ include(FetchContent)
 FetchContent_Declare(
     googletest
     URL https://github.com/google/googletest/archive/refs/heads/main.zip
+    DOWNLOAD_EXTRACT_TIMESTAMP TRUE
 )
 
 # 2. Scope the Windows-specific runtime fix strictly to the MSVC compiler
@@ -25,6 +26,7 @@ FetchContent_MakeAvailable(googletest)
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/..
     ${CMAKE_CURRENT_SOURCE_DIR}/../Building
+    ${CMAKE_CURRENT_SOURCE_DIR}/../Entity
 )
 
 add_executable(CityForgeTest
@@ -35,6 +37,7 @@ add_executable(CityForgeTest
 # 3. Link the targets directly
 target_link_libraries(CityForgeTest PRIVATE
     BuildingLib
+    EntityLib
     gtest
     gmock
 )
