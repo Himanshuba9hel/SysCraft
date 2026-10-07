@@ -32,7 +32,6 @@ add_executable(CityForgeTest
     ${PROJECT_SOURCES}
 )
 
-
 # 3. Link the targets directly
 target_link_libraries(CityForgeTest PRIVATE
     BuildingLib
