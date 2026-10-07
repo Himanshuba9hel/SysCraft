@@ -21,11 +21,6 @@ endif()
 
 FetchContent_MakeAvailable(googletest)
 
-# --- Source Files ---
-# Ensure these paths are correct relative to THIS CMakeLists.txt file
-set(PROJECT_SOURCES
-    ../Building/building.cpp  # Add this line so CMake compiles it
-)
 # --- Include Directories ---
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/..
@@ -36,10 +31,16 @@ add_executable(CityForgeTest
     main.cpp tst_building.cpp
     ${PROJECT_SOURCES}
 )
-add_test(NAME CityForgeTest COMMAND CityForgeTest)
+
 
 # 3. Link the targets directly
-target_link_libraries(CityForgeTest PRIVATE gtest gmock)
+target_link_libraries(CityForgeTest PRIVATE
+    BuildingLib
+    gtest
+    gmock
+)
+
+add_test(NAME CityForgeTest COMMAND CityForgeTest)
 
 include(GNUInstallDirs)
 install(TARGETS CityForgeTest
