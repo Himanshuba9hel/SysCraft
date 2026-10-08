@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # 1. Create a library for your shared source code and headers
 add_library(BuildingLib
     Building/building.h Building/building.cpp
+    Building/space.h Building/space.cpp
 )
 
 add_library(EntityLib

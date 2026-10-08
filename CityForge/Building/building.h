@@ -44,6 +44,14 @@ protected:
     int level = 0;
     void Details();
     std::pair<FloorType, int> getDetails() { return std::pair<FloorType, int>(type, level); };
+private:
+    Building* parent = nullptr;
+
+// Room's
+protected:
+    std::vector<Room> rooms;
+public:
+
 protected:
     std::vector<Entity**> entity_list;
 public:
@@ -51,7 +59,12 @@ public:
 };
 
 class Room {
-
+public:
+    Room(Floor* parent, unsigned int number);
+private:
+    Floor* parent = nullptr;
+protected:
+    unsigned int number = 0;
 };
 
 class Lift

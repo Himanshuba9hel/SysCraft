@@ -40,3 +40,16 @@ void Floor::Details()
 {
 
 }
+
+void Floor::setRoom(unsigned int number)
+{
+    for(int i = 1; i <= number; i++){
+        Room room(this, i);
+        rooms.push_back(room);
+    }
+}
+
+Room::Room(Floor *parent, unsigned int number): parent(parent), number(number)
+{
+
+}
