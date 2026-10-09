@@ -1,4 +1,7 @@
 #include "space.h"
 
-Space::Space() {
+
+Space::Space(unsigned int area)
+{
+
 }

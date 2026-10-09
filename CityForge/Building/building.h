@@ -51,6 +51,7 @@ private:
 protected:
     std::vector<Room> rooms;
 public:
+    void setRoom(unsigned int number = 1);
 
 protected:
     std::vector<Entity**> entity_list;
