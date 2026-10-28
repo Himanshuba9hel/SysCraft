@@ -9,6 +9,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_library(BuildingLib
     Building/building.h Building/building.cpp
     Building/space.h Building/space.cpp
+    Building/elevator.h Building/elevator.cpp
+    Building/accommodation.h Building/accommodation.cpp
 )
 
 add_library(EntityLib

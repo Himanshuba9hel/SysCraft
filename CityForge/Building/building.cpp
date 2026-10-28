@@ -1,5 +1,6 @@
 #include "building.h"
 
+
 Building::Building(int maxUpperFloor, int maxUnderGroundFloor)
 {
     // Generating Ground Floor
@@ -14,6 +15,9 @@ Building::Building(int maxUpperFloor, int maxUnderGroundFloor)
     for(int i = 0; i <= maxUnderGroundFloor; ++i){
         floors.push_back(Floor(FloorType::UnderGround,i*-1));
     }
+
+    elevator = new Elevator(this);
+
 }
 
 bool Building::setEntity(Entity* entity){
@@ -28,7 +32,7 @@ bool Building::entityGotoFloor(Floor floors)
 
 Floor::Floor(FloorType type, int level): type(type), level(level)
 {
-
+    landingDoor = new Elevator::LandingDoor();
 }
 
 bool Floor::setEntity(Entity *entity)

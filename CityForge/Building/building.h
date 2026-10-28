@@ -6,6 +6,8 @@
 class Floor;
 class Room;
 class Lift;
+#include "elevator.h"
+
 enum class FloorType;
 
 class Entity;
@@ -16,7 +18,7 @@ public:
     Building(int maxUpperFloor = 0, int maxUnderGroundFloor = 0);
 protected:
     std::list<Floor> floors;
-
+    Elevator* elevator;
 private:
     std::vector<Lift> lifts;
 public:
@@ -42,8 +44,10 @@ public:
 protected:
     FloorType type = FloorType::Ground;
     int level = 0;
+    Elevator::LandingDoor* landingDoor;
     void Details();
     std::pair<FloorType, int> getDetails() { return std::pair<FloorType, int>(type, level); };
+
 private:
     Building* parent = nullptr;
 
